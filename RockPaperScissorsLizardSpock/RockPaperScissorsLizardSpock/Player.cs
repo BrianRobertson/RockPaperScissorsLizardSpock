@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class Player
+    public class Player
     {
+        string name;
+        int score;
+        string choice;
+        public void SetName()
+        {
+            Console.WriteLine("Enter your player name.");
+            name = Console.ReadLine();
+            Console.WriteLine("Hello " + name + ", Welcome to the game!\n");
+        }
     }
 }
