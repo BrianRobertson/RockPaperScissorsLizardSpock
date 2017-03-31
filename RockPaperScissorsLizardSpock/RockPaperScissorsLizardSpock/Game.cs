@@ -96,10 +96,12 @@ namespace RockPaperScissorsLizardSpock
             if (player1.score == 2)
             {
                 Console.WriteLine(player1.name + " is the Winner of the match!");
+                PlayAgain();
             }
             else if (player2.score == 2)
             {
                 Console.WriteLine(player2.name + " is the Winner of the match!");
+                PlayAgain();
             }
             else
             {
@@ -107,16 +109,29 @@ namespace RockPaperScissorsLizardSpock
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
+        public void PlayAgain()
+        {
+            Console.WriteLine(player1.name + " and " + player2.name + ", Thank you for playing! Would you like to play again?"
+                + "\n1. Yes \n2. No");           
+            string playAgainDecision = Console.ReadLine();
+            switch (playAgainDecision)
+            {
+                case "1":
+                    Console.WriteLine("Here we go again.\n");
+                    player1.score = 0;
+                    player2.score = 0;
+                    TakeTurns();
+                    break;
+                case "2":
+                    Console.WriteLine("Thank you for playing.\n");
+                    Console.Read();
+                    RunGame();
+                    break;
+                default:
+                    Console.WriteLine("Not a valid option.\n");
+                    PlayAgain();
+                    break;
+            }
+        }
     }
 }
