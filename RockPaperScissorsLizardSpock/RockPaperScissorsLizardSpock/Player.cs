@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    public class Player
+    public abstract class Player
     {
         public string name;
         public int score;
@@ -22,16 +22,19 @@ namespace RockPaperScissorsLizardSpock
             name = Console.ReadLine();
             Console.WriteLine("Hello " + name + ", Welcome to the game!\n");
         }
-        public void GetChoice()
+        public virtual string GetInput()
         {
             Console.WriteLine(name + " What do you choose?"
-                + "\n1. Rock"
-                + "\n2. Paper"
-                + "\n3. Scissors"
-                + "\n4. Spock"
-                + "\n5. Lizard");
- //         choice = int.Parse(Console.ReadLine())-1;
+               + "\n1. Rock"
+               + "\n2. Paper"
+               + "\n3. Scissors"
+               + "\n4. Spock"
+               + "\n5. Lizard");
             string input = Console.ReadLine();
+            return input;
+        }
+        public void GetChoice(string input)
+        {
             switch (input)
             {
                 case "1":
@@ -56,10 +59,9 @@ namespace RockPaperScissorsLizardSpock
                     break;
                 default:
                     Console.WriteLine("Not a valid choice.\n");
-                    GetChoice();
+                    GetInput();
                     break;
             }
-
         }
     }
 }

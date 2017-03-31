@@ -8,26 +8,30 @@ namespace RockPaperScissorsLizardSpock
 {
     public class Game
     {
-        Player player1 = new Player();
-        Player player2 = new Player();
-
+        private Player player1;
+        private Player player2;
+        public Game()
+        {
+            player1 = new Human();
+        }
         public void RunGame()
         {
             SetUpGame();
             TakeTurns();
         }
 
-        public void SetUpGame()
+        private void SetUpGame()
         {
             Console.WriteLine("Welcome to the Game! Instructions go here.\n");
             string type = GetGameType();
             if (type == "1")
             {
+                player2 = new AI();
                 player1.SetName();
-                player2.SetName();
             }
             else if (type == "2")
             {
+                player2 = new Human();
                 player1.SetName();
                 player2.SetName();
             }
@@ -55,8 +59,12 @@ namespace RockPaperScissorsLizardSpock
         {
             while (player1.score < 2 && player2.score < 2)
             {
-                player1.GetChoice();
-                player2.GetChoice();
+                string player1Input = player1.GetInput();
+                player1.GetChoice(player1Input);
+
+                string player2Input = player2.GetInput();
+                player2.GetChoice(player2Input);
+
                 CompareChoices();
                 CheckWinner();
             }
