@@ -19,7 +19,6 @@ namespace RockPaperScissorsLizardSpock
             SetUpGame();
             TakeTurns();
         }
-
         private void SetUpGame()
         {
             Console.WriteLine("Welcome to the Game! Instructions go here.\n");
@@ -87,14 +86,20 @@ namespace RockPaperScissorsLizardSpock
                 if (judge == 1 || judge == 3)
                 {
                     player1.score += 1;
-                    Console.WriteLine(player1.name + player1.choice + " Wins round according to this math " + judge
-                    + "\n Your new score is " + player1.score);
+                    Console.WriteLine(player1.name + " wins this round according to this funky math " + judge
+                    + "\n" + player1.name + " your new score is " + player1.score 
+                    + "\n" + player1.name + " chose a " + player1.choice + " and " + player2.name + "chose a " + player2.choice);
                 }
                 else if (judge == 2 || judge == 4)
                 {
                     player2.score += 1;
                     Console.WriteLine(player2.name + player2.choice + " Wins round according to this math " + judge
                     + "\n Your new score is " + player2.score);
+
+                    Console.WriteLine(player2.name + " wins this round according to this funky math " + judge
+                    + "\n" + player2.name + " your new score is " + player2.score
+                    + "\n" + player2.name + " chose a " + player2.choice + " and " + player1.name + " chose a " + player1.choice);
+
                 }
             }
         }
