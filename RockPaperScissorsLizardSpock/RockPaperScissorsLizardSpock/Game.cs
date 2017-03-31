@@ -13,6 +13,12 @@ namespace RockPaperScissorsLizardSpock
 
         public void RunGame()
         {
+            SetUpGame();
+            TakeTurns();
+        }
+
+        public void SetUpGame()
+        {
             Console.WriteLine("Welcome to the Game! Instructions go here.\n");
             string type = GetType();
             if (type == "1")
@@ -26,7 +32,6 @@ namespace RockPaperScissorsLizardSpock
                 player2.SetName();
             }
         }
-
 
         public string GetType()
         {
@@ -45,6 +50,35 @@ namespace RockPaperScissorsLizardSpock
                     return GetType();
             }
         }
+
+public void TakeTurns()
+        {
+            while (player1.score < 2 && player2.score < 2)
+            {
+                player1.GetChoice();
+                player2.GetChoice();
+                CompareChoices();
+            }
+
+        }
+
+
+
+        public void CompareChoices()
+        {
+            if (player1.choice == player2.choice)
+            {
+                Console.WriteLine("Tie");
+                TakeTurns();
+            }
+            else if(player1.choice != player2.choice)
+            {
+                //comparison formula.
+                Console.WriteLine("Game is on.");
+            }
+        }
+
+
 
     }
 }
