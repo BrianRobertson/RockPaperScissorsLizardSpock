@@ -51,7 +51,7 @@ namespace RockPaperScissorsLizardSpock
                     choice = 3;
                     break;
                 case "5":
-                    Console.WriteLine("You chose Lizard.\n");
+                    Console.WriteLine("You chose lizard.\n");
                     choice = 4;
                     break;
                 default:
