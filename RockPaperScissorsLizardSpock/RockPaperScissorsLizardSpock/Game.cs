@@ -123,9 +123,8 @@ namespace RockPaperScissorsLizardSpock
                     TakeTurns();
                     break;
                 case "2":
-                    Console.WriteLine("Thank you for playing.\n");
+                    Console.WriteLine("Thank you for playing!\n");
                     Console.Read();
-                    RunGame();
                     break;
                 default:
                     Console.WriteLine("Not a valid option.\n");
