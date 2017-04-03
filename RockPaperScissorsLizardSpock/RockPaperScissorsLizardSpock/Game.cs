@@ -21,8 +21,8 @@ namespace RockPaperScissorsLizardSpock
         }
         private void SetUpGame()
         {
-            Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock! \nHere are the rules: \nPaper covers Rock, \nRock crushes Lizard, \nLizard poisons Spock, \nSpock smashes Scissors, \nScissors decapitates Lizard, \nLizard eats Paper, \nPaper disproves Spock, \nSpock vaporizes Rock, \nand as it always has Rock crushes Scissors.\n");
-
+            Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock! \nHere are the rules: "
+                + "\nPaper covers Rock, \nRock crushes Lizard, \nLizard poisons Spock, \nSpock smashes Scissors, \nScissors decapitates Lizard, \nLizard eats Paper, \nPaper disproves Spock, \nSpock vaporizes Rock, \nand as it always has Rock crushes Scissors.\n");
             string type = GetGameType();
             if (type == "1")
             {
@@ -74,7 +74,7 @@ namespace RockPaperScissorsLizardSpock
         {
             if (player1.choice == player2.choice)
             {
-                Console.WriteLine("Tie, you both chose the same thing, do over.");
+                Console.WriteLine("Tie, you both chose the same thing, do over.\n");
                 TakeTurns();
             }
             else if(player1.choice != player2.choice)
@@ -85,17 +85,16 @@ namespace RockPaperScissorsLizardSpock
                 if (judge == 1 || judge == 3)
                 {
                     player1.score += 1;
-                    Console.WriteLine(player1.name + " chose " + player1.displayChoice + " which beats " + player2.displayChoice + " as chosen by " + player2.name
+                    Console.WriteLine(player1.name + " chose " + player1.displayChoice + " which beats " + player2.displayChoice + " as chosen by " + player2.name + "."
                     + "\n" + player1.name + " wins this round."
-                    + "\n" + player1.name + " your new score is " + player1.score 
+                    + "\n" + player1.name + " your new score is " + player1.score + "."
                     + "\n" + player2.name + " your score is " + player2.score + ".\n");
                 }
                 else if (judge == 2 || judge == 4)
                 {
                     player2.score += 1;
-                    Console.WriteLine(player2.name + " chose " + player2.displayChoice + " which beats " + player1.displayChoice + " as chosen by " + player1.name
-                    + "\n" + player2.name + " wins this round."
-                    + "\n" + player2.name + " your new score is " + player2.score
+                    Console.WriteLine(player2.name + " chose " + player2.displayChoice + " which beats " + player1.displayChoice + " as chosen by " + player1.name + "."
+                    + "\n" + player2.name + " your new score is " + player2.score + "."
                     + "\n" + player1.name + " your score is " + player1.score + ".\n");
 
                 }
@@ -128,7 +127,7 @@ namespace RockPaperScissorsLizardSpock
             switch (playAgainDecision)
             {
                 case "1":
-                    Console.WriteLine("Here we go again.\n");
+                    Console.WriteLine("Here we go again for another best in three.\n");
                     player1.score = 0;
                     player2.score = 0;
                     TakeTurns();

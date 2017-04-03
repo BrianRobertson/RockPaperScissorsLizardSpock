@@ -33,7 +33,7 @@ namespace RockPaperScissorsLizardSpock
                + "\n5. Lizard");
             string input = Console.ReadLine();
             Console.SetCursorPosition(0, Console.CursorTop - 1);
-            Console.WriteLine("Thank you for your choice. Your opponent will now make their selection.\n");
+            Console.WriteLine("Thank you for your choice.\n");
             return input;
         }
         public void GetChoice(string input)
