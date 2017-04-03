@@ -11,6 +11,7 @@ namespace RockPaperScissorsLizardSpock
         public string name;
         public int score;
         public int choice;
+        public string displayChoice;
 
         public Player()
         {
@@ -32,7 +33,7 @@ namespace RockPaperScissorsLizardSpock
                + "\n5. Lizard");
             string input = Console.ReadLine();
             Console.SetCursorPosition(0, Console.CursorTop - 1);
-            Console.WriteLine("new line of text to cover up their choice");
+            Console.WriteLine("Thank you for your choice. Your opponent will now make their selection.\n");
             return input;
         }
         public void GetChoice(string input)
@@ -40,24 +41,24 @@ namespace RockPaperScissorsLizardSpock
             switch (input)
             {
                 case "1":
-                    //Console.WriteLine("You chose rock.\n");
                     choice = 0;
+                    displayChoice = "Rock";
                     break;
                 case "2":
-                    //Console.WriteLine("You chose paper.\n");
                     choice = 1;
+                    displayChoice = "Paper";
                     break;
                 case "3":
-                    //Console.WriteLine("You chose scissors.\n");
                     choice = 2;
+                    displayChoice = "Scissors";
                     break;
                 case "4":
-                    //Console.WriteLine("You chose Spock.\n");
                     choice = 3;
+                    displayChoice = "Spock";
                     break;
                 case "5":
-                    //Console.WriteLine("You chose lizard.\n");
                     choice = 4;
+                    displayChoice = "Lizard";
                     break;
                 default:
                     Console.WriteLine("Not a valid choice.\n");

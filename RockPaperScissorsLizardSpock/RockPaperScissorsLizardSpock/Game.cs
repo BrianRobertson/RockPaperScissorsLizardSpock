@@ -21,7 +21,8 @@ namespace RockPaperScissorsLizardSpock
         }
         private void SetUpGame()
         {
-            Console.WriteLine("Welcome to the Game! Instructions go here.\n");
+            Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock! \nHere are the rules: \nPaper covers Rock, \nRock crushes Lizard, \nLizard poisons Spock, \nSpock smashes Scissors, \nScissors decapitates Lizard, \nLizard eats Paper, \nPaper disproves Spock, \nSpock vaporizes Rock, \nand as it always has Rock crushes Scissors.\n");
+
             string type = GetGameType();
             if (type == "1")
             {
@@ -43,7 +44,7 @@ namespace RockPaperScissorsLizardSpock
             switch (type)
             {
                 case "1":
-                    Console.WriteLine("You are playing against the machine.\n");
+                    Console.WriteLine("You are playing against the machine. His name is HAL.\n");
                     return type;
                 case "2":
                     Console.WriteLine("You are playing against another person.\n");
@@ -73,32 +74,29 @@ namespace RockPaperScissorsLizardSpock
         {
             if (player1.choice == player2.choice)
             {
-                Console.WriteLine("Tie, do over.");
+                Console.WriteLine("Tie, you both chose the same thing, do over.");
                 TakeTurns();
             }
             else if(player1.choice != player2.choice)
             {
                 //comparison formula.
-                Console.WriteLine("Game is on.");
-
                 int judge;
                 judge = (5 + player1.choice - player2.choice) % 5;
                 if (judge == 1 || judge == 3)
                 {
                     player1.score += 1;
-                    Console.WriteLine(player1.name + " wins this round according to this funky math " + judge
+                    Console.WriteLine(player1.name + " chose " + player1.displayChoice + " which beats " + player2.displayChoice + " as chosen by " + player2.name
+                    + "\n" + player1.name + " wins this round."
                     + "\n" + player1.name + " your new score is " + player1.score 
-                    + "\n" + player1.name + " chose a " + player1.choice + " and " + player2.name + "chose a " + player2.choice);
+                    + "\n" + player2.name + " your score is " + player2.score + ".\n");
                 }
                 else if (judge == 2 || judge == 4)
                 {
                     player2.score += 1;
-                    Console.WriteLine(player2.name + player2.choice + " Wins round according to this math " + judge
-                    + "\n Your new score is " + player2.score);
-
-                    Console.WriteLine(player2.name + " wins this round according to this funky math " + judge
+                    Console.WriteLine(player2.name + " chose " + player2.displayChoice + " which beats " + player1.displayChoice + " as chosen by " + player1.name
+                    + "\n" + player2.name + " wins this round."
                     + "\n" + player2.name + " your new score is " + player2.score
-                    + "\n" + player2.name + " chose a " + player2.choice + " and " + player1.name + " chose a " + player1.choice);
+                    + "\n" + player1.name + " your score is " + player1.score + ".\n");
 
                 }
             }
@@ -108,12 +106,12 @@ namespace RockPaperScissorsLizardSpock
         {
             if (player1.score == 2)
             {
-                Console.WriteLine(player1.name + " is the Winner of the match!");
+                Console.WriteLine(player1.name + " is the Winner of the best of 3 match!");
                 PlayAgain();
             }
             else if (player2.score == 2)
             {
-                Console.WriteLine(player2.name + " is the Winner of the match!");
+                Console.WriteLine(player2.name + " is the Winner of the best of 3 match!");
                 PlayAgain();
             }
             else
@@ -137,7 +135,6 @@ namespace RockPaperScissorsLizardSpock
                     break;
                 case "2":
                     Console.WriteLine("Thank you for playing!\n");
-                    Console.Read();
                     break;
                 default:
                     Console.WriteLine("Not a valid option.\n");
